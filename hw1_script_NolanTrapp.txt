@@ -1,0 +1,34 @@
+Script started on Tue 17 Jan 2023 10:54:25 AM MST
+[?1034hsh-4.2$ cat h
+hello_world.c              hw1_NolanTrapp.c           hw1_script_NolanTrapp.txt  
+sh-4.2$ cat hw1_NolanTrapp.c 
+/*************************************************************** 
+ * File:     hw1_NolanTrapp.c 
+ * Author:   Nolan Trapp 
+ * Purpose:  This program shares interesting facts about me.
+ * Source Code: Https://github.com/SparksTheFolf/CS-125 
+ ****************************************************************/ 
+ 
+
+#include <stdio.h>
+
+int main() {
+
+	printf("\n Greetings Earthlings! \n");
+	printf("\n I grew up in a town in SoCal called Temecula, it has roughtly 150,000 active residences\n ");	
+	printf("\n I have about 7-9  years of experiance in Java, C, C++, C#, and Python, but like to also tinker in ther languages like COBOL and FORTRAN, My favorite IDE is the VSC IDE from microsoft. \n");
+
+return 0;
+}
+sh-4.2$ gcc -am[Knsi -Wall Hw[K[Khw1_NolanTrapp.c -o a.out
+sh-4.2$ ./a.out 
+
+ Greetings Earthlings! 
+
+ I grew up in a town in SoCal called Temecula, it has roughtly 150,000 active residences
+ 
+ I have about 7-9  years of experiance in Java, C, C++, C#, and Python, but like to also tinker in ther languages like COBOL and FORTRAN, My favorite IDE is the VSC IDE from microsoft. 
+sh-4.2$ exit
+exit
+
+Script done on Tue 17 Jan 2023 10:55:06 AM MST
