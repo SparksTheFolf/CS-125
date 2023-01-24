@@ -11,9 +11,7 @@ int main(){
 
 	/* Init/Starting Variables*/
 
-	int x;
-	int y;
-	int numSpecified;
+	int x, y, numSpecified;
 
 	/* Ending Starting Variables */
 
@@ -33,13 +31,11 @@ int main(){
 	}
 
 
-	printf("\n");
-	printf("\n");
+	printf("\n\n");
 
 	printf("Case 2\n");
 	printf("Print a greeting depending on the number of times it was specified\n");
 	printf("\n");
-	
 	
 	printf("Enter a number of times to be greeted: ");
 	scanf("%d", &numSpecified);
