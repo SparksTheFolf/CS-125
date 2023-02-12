@@ -1,0 +1,375 @@
+Script started on Sun 12 Feb 2023 11:09:21 AM MST
+[?1034hsh-4.2$ cat hw4_NolanTrapp.c 
+/* * ***************************************************************
+ * * * Author:   Nolan Trapp
+ * * * Date: 2-12-2023
+ * * * * Purpose:  This propgram is a slot machine.
+ * * * * Source Code: Https://github.com/SparksTheFolf/CS-125
+ * * * [Sources Of Help]
+ * * *   - Github
+ * * *   - C Class Programming Book(Math Section)
+ * * *	 - W3 Schools
+ * * * ****************************************************************/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int getRandomInteger(int minimum_, int maximum_);
+void printWheelImage(int imageNumber_);
+void printLosingGame(int imageNumber1_, int imageNumber2_, int imageNumber3_);
+void printWinningGame(int imageNumber_);
+void playGame(void);
+int main(void);
+
+int getRandomInteger(int minimum_, int maximum_)
+{
+    int randomInteger;
+    randomInteger = minimum_ + rand() % (maximum_ - minimum_ + 1);
+    return randomInteger;
+}
+
+void printWheelImage(int imageNumber_)
+{
+    switch (imageNumber_)
+    {
+        case 1:
+            printf("Cherry");
+            break;
+        case 2:
+            printf("Lemon");
+            break;
+        case 3:
+            printf("Peach");
+            break;
+        case 4:
+            printf("Bell");
+            break;
+        case 5:
+            printf("7");
+            break;
+        case 6:
+            printf("$");
+            break;
+        case 7:
+            printf("Diamond");
+            break;
+        default:
+            printf("Error: Invalid image number");
+            break;
+    }
+}
+
+void printLosingGame(int imageNumber1_, int imageNumber2_, int imageNumber3_)
+{
+    printWheelImage(imageNumber1_);
+    printf("\t");
+    printWheelImage(imageNumber2_);
+    printf("\t");
+    printWheelImage(imageNumber3_);
+    printf("\t");
+}
+
+void printWinningGame(int imageNumber_)
+{
+    printLosingGame(imageNumber_, imageNumber_, imageNumber_);
+    printf("YOU WIN!");
+}
+
+void playGame(void)
+{
+    int imageNumber1, imageNumber2, imageNumber3;
+    imageNumber1 = getRandomInteger(1, 7);
+    imageNumber2 = getRandomInteger(1, 7);
+    imageNumber3 = getRandomInteger(1, 7);
+    if (imageNumber1 == imageNumber2 && imageNumber2 == imageNumber3)
+    {
+        printWinningGame(imageNumber1);
+    }
+    else
+    {
+        printLosingGame(imageNumber1, imageNumber2, imageNumber3);
+    }
+}
+
+int main(void)
+{
+    char playAgain;
+    printf("Hit enter to play the slot machine. Any other key to quit.");
+
+    while (scanf("%c", &playAgain) == 1 && playAgain == '\n')
+    {
+        playGame();
+    }
+    return 0;
+}
+
+
+sh-4.2$ gcc -ansi _wall [K[K[K[K[K[K-w[KWall hw4_NolanTrapp.c 
+sh-4.2$ ./a.out 
+Hit enter to play the slot machine. Any other key to quit.
+Lemon	7	Peach	
+$	Lemon	Bell	
+Bell	Peach	Lemon	
+Bell	Peach	$	
+Diamond	7	Diamond	
+Cherry	Bell	Lemon	
+Peach	Peach	Bell	
+Cherry	$	Peach	
+Peach	$	$	
+Diamond	Lemon	$	
+$	Cherry	Bell	
+$	Bell	Peach	
+Lemon	Cherry	Peach	
+Peach	Lemon	7	
+$	Cherry	Diamond	
+Bell	Diamond	Peach	
+Peach	Lemon	Bell	
+$	Cherry	Lemon	
+Lemon	Peach	7	
+7	Lemon	Bell	
+Peach	Diamond	7	
+$	Bell	$	
+$	7	Bell	
+Cherry	$	Bell	
+Peach	Bell	Bell	
+Peach	7	Cherry	
+Peach	Cherry	Cherry	
+Bell	$	Cherry	
+7	7	Cherry	
+Peach	Lemon	Lemon	
+$	7	$	
+Cherry	Cherry	Lemon	
+7	Diamond	7	
+Cherry	7	Cherry	
+Bell	Cherry	Lemon	
+$	Cherry	Diamond	
+Bell	Cherry	Diamond	
+Lemon	7	Peach	
+Diamond	Diamond	Cherry	
+Diamond	Diamond	Lemon	
+$	Bell	Bell	
+7	Bell	7	
+Bell	$	Lemon	
+$	7	Bell	
+$	$	Lemon	
+Cherry	Lemon	Lemon	
+7	$	Cherry	
+Bell	7	7	
+Bell	7	Bell	
+Bell	Bell	Bell	YOU WIN!
+Bell	Peach	7	
+7	7	$	
+Diamond	$	7	
+Cherry	7	Lemon	
+Peach	Cherry	Diamond	
+Bell	Cherry	Diamond	
+$	Peach	7	
+Bell	Bell	Lemon	
+Cherry	Cherry	Bell	
+Lemon	Bell	Cherry	
+Peach	7	Cherry	
+Diamond	Peach	Peach	
+$	Lemon	Cherry	
+Peach	Cherry	7	
+Lemon	Peach	Bell	
+$	$	Bell	
+7	Lemon	Diamond	
+Diamond	7	Peach	
+Diamond	Peach	Cherry	
+Peach	7	Peach	
+Cherry	7	Diamond	
+$	7	Diamond	
+Cherry	Cherry	Diamond	
+Lemon	Cherry	Diamond	
+Bell	Lemon	Diamond	
+Diamond	7	Peach	
+Lemon	Cherry	7	
+$	7	Diamond	
+$	Lemon	Cherry	
+Diamond	7	Peach	
+Lemon	Peach	Diamond	
+$	Lemon	Lemon	
+$	Diamond	Lemon	
+7	Cherry	Lemon	
+Lemon	Peach	Cherry	
+Cherry	Lemon	Bell	
+Peach	Cherry	Bell	
+7	$	$	
+Peach	Peach	Cherry	
+Peach	Lemon	Peach	
+Peach	Cherry	7	
+Lemon	$	Bell	
+Bell	Lemon	Bell	
+Peach	$	Lemon	
+7	7	Bell	
+Peach	7	$	
+$	$	Bell	
+Diamond	Cherry	Peach	
+$	Peach	7	
+Bell	Peach	Bell	
+$	7	Bell	
+Peach	7	Diamond	
+7	$	Lemon	
+Cherry	Cherry	7	
+Lemon	Peach	Cherry	
+$	$	Peach	
+Lemon	Lemon	Cherry	
+7	Diamond	Diamond	
+7	Peach	Diamond	
+Diamond	$	Peach	
+Peach	Bell	7	
+Bell	Bell	Diamond	
+Lemon	Cherry	7	
+Cherry	$	Bell	
+Peach	Cherry	$	
+Peach	Bell	Lemon	
+$	7	Bell	
+Bell	Diamond	Peach	
+Peach	Peach	7	
+Peach	Lemon	Cherry	
+Peach	Peach	Bell	
+7	Bell	7	
+7	7	$	
+Diamond	7	Lemon	
+Peach	$	Lemon	
+Lemon	Cherry	Peach	
+Peach	$	7	
+Bell	Peach	7	
+Bell	Peach	Diamond	
+$	Peach	$	
+$	7	Cherry	
+Diamond	Cherry	Peach	
+7	7	Diamond	
+Cherry	Lemon	Peach	
+Lemon	7	Cherry	
+Lemon	Bell	Cherry	
+Bell	Bell	7	
+Lemon	Cherry	7	
+Bell	Bell	7	
+Cherry	Peach	Cherry	
+$	$	7	
+7	$	7	
+Diamond	Peach	Diamond	
+Bell	Cherry	Lemon	
+$	Lemon	Bell	
+Bell	Cherry	Diamond	
+Peach	7	Peach	
+Diamond	Bell	Cherry	
+Lemon	Diamond	Peach	
+$	Diamond	Peach	
+$	Peach	Cherry	
+Lemon	Diamond	$	
+Bell	$	$	
+Bell	Peach	$	
+Peach	$	$	
+Bell	Peach	$	
+Peach	7	Cherry	
+Peach	Lemon	Bell	
+Bell	Peach	Cherry	
+Bell	$	Diamond	
+$	7	Peach	
+$	Bell	Diamond	
+Peach	Diamond	$	
+Cherry	Cherry	$	
+7	Peach	Bell	
+Cherry	$	Bell	
+Bell	$	Cherry	
+7	Lemon	Diamond	
+$	Peach	Lemon	
+Diamond	$	Cherry	
+Bell	Bell	Peach	
+$	Diamond	$	
+$	Lemon	7	
+Lemon	Cherry	$	
+Diamond	Peach	$	
+Cherry	Peach	Peach	
+7	$	$	
+Peach	Cherry	7	
+Peach	Diamond	Diamond	
+Lemon	Bell	Peach	
+Diamond	Diamond	Bell	
+Diamond	Bell	Lemon	
+7	Diamond	Peach	
+Cherry	$	Cherry	
+Bell	Peach	Peach	
+Diamond	Peach	Peach	
+Diamond	7	Diamond	
+$	$	Diamond	
+Peach	Cherry	Bell	
+Cherry	Diamond	Diamond	
+Cherry	7	7	
+7	Bell	$	
+$	Lemon	7	
+$	Diamond	Peach	
+Diamond	Peach	7	
+Diamond	Diamond	7	
+Cherry	Diamond	Peach	
+Diamond	7	Cherry	
+Bell	7	$	
+Cherry	7	Peach	
+7	$	Diamond	
+Diamond	Cherry	Bell	
+7	Bell	Peach	
+Diamond	Lemon	Lemon	
+Diamond	$	Lemon	
+Lemon	Bell	$	
+Diamond	Bell	7	
+Diamond	Cherry	Diamond	
+7	Bell	Peach	
+Cherry	Lemon	Diamond	
+Peach	Diamond	Peach	
+Peach	Bell	Cherry	
+Bell	Lemon	Bell	
+$	$	Bell	
+7	$	Lemon	
+Bell	Diamond	Peach	
+Lemon	Bell	$	
+7	Peach	$	
+Lemon	7	Cherry	
+Bell	7	Lemon	
+Lemon	$	Cherry	
+Lemon	$	Peach	
+Peach	Lemon	Bell	
+Bell	7	Diamond	
+Diamond	Diamond	7	
+Diamond	Cherry	7	
+Lemon	Diamond	$	
+$	Bell	Lemon	
+Lemon	$	Bell	
+Lemon	Diamond	Lemon	
+Bell	Cherry	Diamond	
+Lemon	Peach	Peach	
+Bell	7	Bell	
+7	Cherry	$	
+7	$	7	
+Diamond	7	Peach	
+Lemon	Bell	Lemon	
+Cherry	Lemon	Bell	
+Lemon	Bell	Diamond	
+7	Peach	$	
+Bell	Bell	Diamond	
+Cherry	$	Lemon	
+Peach	Diamond	Bell	
+Bell	Peach	Lemon	
+Lemon	7	Diamond	
+Bell	Bell	Lemon	
+$	$	$	YOU WIN!
+Cherry	$	7	
+Bell	7	$	
+Peach	Diamond	Lemon	
+$	Bell	7	
+7	Lemon	Cherry	
+Bell	7	$	
+7	$	Cherry	
+Diamond	Cherry	7	
+Bell	Bell	Cherry	
+Bell	Cherry	Bell	
+Diamond	$	Lemon	
+Bell	Lemon	$	
+Peach	Lemon	Bell	
+Lemon	Diamond	Diamond	q
+sh-4.2$ exit
+exit
+
+Script done on Sun 12 Feb 2023 11:10:58 AM MST
